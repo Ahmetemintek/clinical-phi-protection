@@ -5,8 +5,8 @@ under the detector's `name` in DETECTOR_LABEL_MAPPINGS. Labels without an entry
 get `standardized_label=None`; they are kept, never dropped, and
 `original_label` is never changed.
 
-The registry is intentionally empty: add an entry when a real detector is
-integrated, after inspecting the labels it actually emits.
+Add an entry when a real detector is integrated, after inspecting the labels it
+actually emits. Only map labels whose meaning clearly matches an ASQ-PHI category.
 """
 
 from __future__ import annotations
@@ -23,7 +23,17 @@ ASQ_PHI_LABELS = {
     "CERTIFICATE_LICENSE_NUMBER", "IP_ADDRESS",
 }
 
-DETECTOR_LABEL_MAPPINGS: dict[str, dict[str, str]] = {}
+DETECTOR_LABEL_MAPPINGS: dict[str, dict[str, str]] = {
+    "presidio": {
+        "PERSON": "NAME",
+        "LOCATION": "GEOGRAPHIC_LOCATION",
+        "DATE_TIME": "DATE",
+        "PHONE_NUMBER": "PHONE_NUMBER",
+        "EMAIL_ADDRESS": "EMAIL_ADDRESS",
+        "US_SSN": "SOCIAL_SECURITY_NUMBER",
+        "IP_ADDRESS": "IP_ADDRESS",
+    },
+}
 
 
 def standardize_entities(entities: list[DetectedEntity],

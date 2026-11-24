@@ -1,0 +1,47 @@
+{
+  "detector": "presidio",
+  "dataset": {
+    "total_records": 1051,
+    "phi_positive_records": 832,
+    "hard_negative_records": 219,
+    "records_with_predictions": 1031,
+    "records_without_predictions": 20
+  },
+  "predictions": {
+    "total": 3940,
+    "by_original_label": {
+      "DATE_TIME": 2030,
+      "PERSON": 888,
+      "LOCATION": 361,
+      "US_DRIVER_LICENSE": 267,
+      "NRP": 76,
+      "US_BANK_NUMBER": 62,
+      "PHONE_NUMBER": 59,
+      "US_SSN": 57,
+      "US_ITIN": 35,
+      "URL": 34,
+      "US_PASSPORT": 33,
+      "EMAIL_ADDRESS": 30,
+      "UK_NHS": 7,
+      "IP_ADDRESS": 1
+    },
+    "by_standardized_label": {
+      "DATE": 2030,
+      "NAME": 888,
+      "UNMAPPED": 514,
+      "GEOGRAPHIC_LOCATION": 361,
+      "PHONE_NUMBER": 59,
+      "SOCIAL_SECURITY_NUMBER": 57,
+      "EMAIL_ADDRESS": 30,
+      "IP_ADDRESS": 1
+    },
+    "mapped": 3426,
+    "unmapped": 514,
+    "on_hard_negative_records": 357
+  },
+  "latency_ms": {
+    "mean": 61.15819722739587,
+    "p50": 54.856234000908444,
+    "p95": 89.70682000108354
+  }
+}

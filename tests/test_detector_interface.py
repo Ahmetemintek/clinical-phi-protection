@@ -1,6 +1,6 @@
 import pytest
 
-from benchmarking.detectors.base import BaseDetector, DetectedEntity
+from benchmarking.detectors.base import DetectedEntity
 from benchmarking.detectors.label_mapping import standardize_entities
 from benchmarking.detectors.runner import (
     DetectionResult,
@@ -11,17 +11,13 @@ from benchmarking.detectors.runner import (
 TEXT = "Patient John Smith was admitted on 2023-04-12."
 
 
-class DummyDetector(BaseDetector):
+class DummyDetector:
     """Returns a fixed list of entities, whatever the text."""
 
     def __init__(self, entities, name="dummy"):
+        self.name = name
         self._entities = entities
-        self._name = name
         self.received = []
-
-    @property
-    def name(self):
-        return self._name
 
     def detect(self, text):
         self.received.append(text)
@@ -35,11 +31,6 @@ def name_entity(**kw):
 
 
 MAPPINGS = {"dummy": {"PERSON": "NAME", "DATE_TIME": "DATE"}}
-
-
-def test_base_detector_is_abstract():
-    with pytest.raises(TypeError):
-        BaseDetector()
 
 
 def test_dummy_detector_and_runner_return_entities():

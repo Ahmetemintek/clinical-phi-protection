@@ -7,7 +7,6 @@ from benchmarking.data.loader import (
     DatasetFormatError,
     DatasetRecord,
     GoldEntity,
-    iter_dataset,
     load_dataset,
 )
 
@@ -48,7 +47,6 @@ def test_loads_expected_counts(records):
 
 def test_preserves_order_and_ids(records):
     assert [r.query_id for r in records] == list(range(1051))
-    assert [r.query_id for r in iter_dataset()] == list(range(1051))
 
 
 def test_preserves_first_record(records):

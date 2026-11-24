@@ -13,21 +13,19 @@ from __future__ import annotations
 import json
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Iterator, Union
 
 DEFAULT_DATASET_PATH = (
     Path(__file__).resolve().parents[2] / "data" / "processed" / "asq_phi_processed.jsonl"
 )
 
-MATCHED = "matched"
-ALIGNMENT_STATUSES = frozenset({MATCHED, "ambiguous", "missing"})
+ALIGNMENT_STATUSES = {"matched", "ambiguous", "missing"}
 
 
 class DatasetFormatError(ValueError):
     """Raised when a record in the processed dataset is malformed."""
 
 
-@dataclass(frozen=True)
+@dataclass
 class GoldEntity:
     text: str
     label: str
@@ -36,7 +34,7 @@ class GoldEntity:
     alignment_status: str
 
 
-@dataclass(frozen=True)
+@dataclass
 class DatasetRecord:
     query_id: int
     text: str
@@ -44,32 +42,30 @@ class DatasetRecord:
     entities: list[GoldEntity]
 
 
-def _is_int(value: object) -> bool:
-    return isinstance(value, int) and not isinstance(value, bool)
-
-
 def _parse_entity(raw: object, query: str, where: str) -> GoldEntity:
     if not isinstance(raw, dict):
         raise DatasetFormatError(f"{where}: entity must be an object, got {type(raw).__name__}")
-    for key, typ in (("text", str), ("label", str), ("alignment_status", str)):
-        if key not in raw:
-            raise DatasetFormatError(f"{where}: entity missing required field '{key}'")
-        if not isinstance(raw[key], typ):
-            raise DatasetFormatError(f"{where}: entity field '{key}' must be {typ.__name__}")
-    for key in ("start", "end"):
+    for key in ("text", "label", "start", "end", "alignment_status"):
         if key not in raw:
             raise DatasetFormatError(f"{where}: entity missing required field '{key}'")
 
-    text, label, status = raw["text"], raw["label"], raw["alignment_status"]
-    start, end = raw["start"], raw["end"]
-    if not text or not label:
-        raise DatasetFormatError(f"{where}: entity has empty text or label: {raw!r}")
+    text = raw["text"]
+    label = raw["label"]
+    start = raw["start"]
+    end = raw["end"]
+    status = raw["alignment_status"]
+
+    if not isinstance(text, str) or not text:
+        raise DatasetFormatError(f"{where}: entity field 'text' must be a non-empty string")
+    if not isinstance(label, str) or not label:
+        raise DatasetFormatError(f"{where}: entity field 'label' must be a non-empty string")
     if status not in ALIGNMENT_STATUSES:
         raise DatasetFormatError(
             f"{where}: unknown alignment_status {status!r} (expected one of {sorted(ALIGNMENT_STATUSES)})")
 
-    if status == MATCHED:
-        if not (_is_int(start) and _is_int(end)):
+    if status == "matched":
+        # type(...) is int rejects bools, which isinstance(..., int) would accept.
+        if type(start) is not int or type(end) is not int:
             raise DatasetFormatError(f"{where}: matched entity {text!r} needs integer start/end, got {start!r}, {end!r}")
         if not 0 <= start < end <= len(query):
             raise DatasetFormatError(
@@ -89,28 +85,35 @@ def _parse_record(raw: object, where: str) -> DatasetRecord:
     for key in ("query_id", "query", "has_phi", "entities"):
         if key not in raw:
             raise DatasetFormatError(f"{where}: missing required field '{key}'")
-    if not _is_int(raw["query_id"]):
+
+    query_id = raw["query_id"]
+    query = raw["query"]
+    has_phi = raw["has_phi"]
+
+    if type(query_id) is not int:
         raise DatasetFormatError(f"{where}: 'query_id' must be an integer")
-    if not isinstance(raw["query"], str) or not raw["query"]:
+    if not isinstance(query, str) or not query:
         raise DatasetFormatError(f"{where}: 'query' must be a non-empty string")
-    if not isinstance(raw["has_phi"], bool):
+    if not isinstance(has_phi, bool):
         raise DatasetFormatError(f"{where}: 'has_phi' must be a boolean")
     if not isinstance(raw["entities"], list):
         raise DatasetFormatError(f"{where}: 'entities' must be a list")
 
-    where = f"{where} (query_id={raw['query_id']})"
-    entities = [_parse_entity(e, raw["query"], f"{where}, entity {i}")
-                for i, e in enumerate(raw["entities"])]
-    if raw["has_phi"] != bool(entities):
-        raise DatasetFormatError(f"{where}: has_phi={raw['has_phi']} inconsistent with {len(entities)} entities")
-    return DatasetRecord(query_id=raw["query_id"], text=raw["query"],
-                         has_phi=raw["has_phi"], entities=entities)
+    where = f"{where} (query_id={query_id})"
+    entities = []
+    for i, raw_entity in enumerate(raw["entities"]):
+        entities.append(_parse_entity(raw_entity, query, f"{where}, entity {i}"))
+
+    if has_phi != (len(entities) > 0):
+        raise DatasetFormatError(f"{where}: has_phi={has_phi} inconsistent with {len(entities)} entities")
+    return DatasetRecord(query_id=query_id, text=query, has_phi=has_phi, entities=entities)
 
 
-def iter_dataset(path: Union[str, Path, None] = None) -> Iterator[DatasetRecord]:
-    """Yield validated records in file order. Raises DatasetFormatError on bad data."""
+def load_dataset(path: str | Path | None = None) -> list[DatasetRecord]:
+    """Load and validate all records, in file order. Raises DatasetFormatError on bad data."""
     path = Path(path) if path is not None else DEFAULT_DATASET_PATH
-    seen_ids: set[int] = set()
+    records = []
+    seen_ids = set()
     with open(path, encoding="utf-8") as f:
         for line_no, line in enumerate(f, start=1):
             where = f"{path.name}:{line_no}"
@@ -120,13 +123,10 @@ def iter_dataset(path: Union[str, Path, None] = None) -> Iterator[DatasetRecord]
                 raw = json.loads(line)
             except json.JSONDecodeError as e:
                 raise DatasetFormatError(f"{where}: invalid JSON ({e})") from e
+
             record = _parse_record(raw, where)
             if record.query_id in seen_ids:
                 raise DatasetFormatError(f"{where}: duplicate query_id {record.query_id}")
             seen_ids.add(record.query_id)
-            yield record
-
-
-def load_dataset(path: Union[str, Path, None] = None) -> list[DatasetRecord]:
-    """Load the whole dataset into a list (file order preserved)."""
-    return list(iter_dataset(path))
+            records.append(record)
+    return records

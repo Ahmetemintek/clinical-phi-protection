@@ -10,7 +10,7 @@ from __future__ import annotations
 import time
 from dataclasses import dataclass
 
-from .base import BaseDetector, DetectedEntity
+from .base import DetectedEntity
 from .label_mapping import DETECTOR_LABEL_MAPPINGS, standardize_entities
 
 
@@ -24,10 +24,6 @@ class DetectionResult:
     latency_ms: float
 
 
-def _is_int(value: object) -> bool:
-    return isinstance(value, int) and not isinstance(value, bool)
-
-
 def validate_entities(detector_name: str, text: str, entities: object) -> None:
     """Raise InvalidDetectionError unless every entity is a valid span of `text`."""
     if not isinstance(entities, list):
@@ -39,7 +35,8 @@ def validate_entities(detector_name: str, text: str, entities: object) -> None:
             raise InvalidDetectionError(f"{where}: expected DetectedEntity, got {type(e).__name__}")
         if not isinstance(e.original_label, str) or not e.original_label:
             raise InvalidDetectionError(f"{where}: original_label must be a non-empty string")
-        if not (_is_int(e.start) and _is_int(e.end)):
+        # type(...) is int rejects bools and floats, which isinstance(..., int) would not.
+        if type(e.start) is not int or type(e.end) is not int:
             raise InvalidDetectionError(f"{where}: start/end must be integers, got {e.start!r}, {e.end!r}")
         if not 0 <= e.start < e.end <= len(text):
             raise InvalidDetectionError(
@@ -51,10 +48,11 @@ def validate_entities(detector_name: str, text: str, entities: object) -> None:
             raise InvalidDetectionError(f"{where}: score must be a number or None, got {e.score!r}")
 
 
-def run_detector(detector: BaseDetector, text: str,
+def run_detector(detector, text: str,
                  label_mappings: dict[str, dict[str, str]] | None = None) -> DetectionResult:
     """Run `detector` on `text`, validate its spans and apply its label mapping.
 
+    `detector` is any object with a `name` attribute and a `detect(text)` method.
     `label_mappings` maps detector name -> {original_label: ASQ-PHI category};
     it defaults to DETECTOR_LABEL_MAPPINGS. A detector with no registered mapping
     gets `standardized_label=None` on every entity.
@@ -69,5 +67,6 @@ def run_detector(detector: BaseDetector, text: str,
     latency_ms = (time.perf_counter() - start) * 1000.0
 
     validate_entities(detector.name, text, entities)
-    entities = standardize_entities(entities, label_mappings.get(detector.name, {}))
+    mapping = label_mappings.get(detector.name, {})
+    entities = standardize_entities(entities, mapping)
     return DetectionResult(entities=entities, latency_ms=latency_ms)

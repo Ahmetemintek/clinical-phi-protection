@@ -1,0 +1,680 @@
+{
+  "DATE_TIME": [
+    {
+      "query_id": 133,
+      "query": "concern about rx of warfarin in a 56yo pt named Daniel Cruz, seen at Brigham & Women’s on 08/22, with MRN DX-54321. hx of DVT.",
+      "detected_text": "08/22",
+      "original_label": "DATE_TIME",
+      "standardized_label": "DATE",
+      "start": 90,
+      "end": 95,
+      "score": 0.1
+    },
+    {
+      "query_id": 109,
+      "query": "\"Recommendations for a 29-year-old female with Type 1 Diabetes, Samantha P., treated at Bellevue Hospital on December 12th, 2022 (MRN: BH-112233)?\"",
+      "detected_text": "December 12th, 2022",
+      "original_label": "DATE_TIME",
+      "standardized_label": "DATE",
+      "start": 109,
+      "end": 128,
+      "score": 0.85
+    },
+    {
+      "query_id": 362,
+      "query": "What is the best practice for treating a pt w/ hx of COPD and asthma, check notes of Sam T., admitted to St. Luke's on 10/11/23. Also, consider his insurance ID AX-987654.",
+      "detected_text": "10/11/23",
+      "original_label": "DATE_TIME",
+      "standardized_label": "DATE",
+      "start": 119,
+      "end": 127,
+      "score": 0.85
+    },
+    {
+      "query_id": 675,
+      "query": "Treatment guidelines for pediatric asthma in a 10-year-old boy, seen by Dr. Emily Richards, in San Diego on April 3rd, 2023, with insurance number IN-789012.",
+      "detected_text": "April 3rd,",
+      "original_label": "DATE_TIME",
+      "standardized_label": "DATE",
+      "start": 108,
+      "end": 118,
+      "score": 0.85
+    },
+    {
+      "query_id": 1050,
+      "query": "Management steps for a 50-year-old female, Maria Thompson, diagnosed with rheumatoid arthritis, currently a patient at Coastal Health Clinic (Patient ID: MTH-987654) since May 5th, 2021.",
+      "detected_text": "May 5th, 2021",
+      "original_label": "DATE_TIME",
+      "standardized_label": "DATE",
+      "start": 172,
+      "end": 185,
+      "score": 0.85
+    }
+  ],
+  "EMAIL_ADDRESS": [
+    {
+      "query_id": 12,
+      "query": "Effectiveness of esomeprazole 40 mg daily for GERD in a 55-year-old with chronic kidney disease, referred by Dr. Sarah P. from Chicago on August 19, 2023 (Email: sarah.p@medsite.com)?",
+      "detected_text": "sarah.p@medsite.com",
+      "original_label": "EMAIL_ADDRESS",
+      "standardized_label": "EMAIL_ADDRESS",
+      "start": 162,
+      "end": 181,
+      "score": 1.0
+    },
+    {
+      "query_id": 333,
+      "query": "Standard care protocols for a 40-year-old male with acute appendicitis, John Doerr, admitted to Houston General Hospital on February 18th, 2023 (contact: john.doerr@example.com)?",
+      "detected_text": "john.doerr@example.com",
+      "original_label": "EMAIL_ADDRESS",
+      "standardized_label": "EMAIL_ADDRESS",
+      "start": 154,
+      "end": 176,
+      "score": 1.0
+    },
+    {
+      "query_id": 583,
+      "query": "tx recs for a 56yo female pt w/ hx of RA, seen by Dr. Patel at General Hosp. last Thursday. PT's email is patel56@example.com.",
+      "detected_text": "patel56@example.com",
+      "original_label": "EMAIL_ADDRESS",
+      "standardized_label": "EMAIL_ADDRESS",
+      "start": 106,
+      "end": 125,
+      "score": 1.0
+    },
+    {
+      "query_id": 914,
+      "query": "Current CDC guidelines for vaccinating an 18-month-old child, Emily Brown, seen at Brooklyn Clinic on March 8th, 2023 (Email: ebrown@example.com)?",
+      "detected_text": "ebrown@example.com",
+      "original_label": "EMAIL_ADDRESS",
+      "standardized_label": "EMAIL_ADDRESS",
+      "start": 126,
+      "end": 144,
+      "score": 1.0
+    },
+    {
+      "query_id": 1045,
+      "query": "Diagnosis and treatment options for a 47-year-old male, Peter Williams, with chronic pancreatitis seen at Cedars-Sinai on 5/11/2022 (email: peter.williams@example.com)?",
+      "detected_text": "peter.williams@example.com",
+      "original_label": "EMAIL_ADDRESS",
+      "standardized_label": "EMAIL_ADDRESS",
+      "start": 140,
+      "end": 166,
+      "score": 1.0
+    }
+  ],
+  "IP_ADDRESS": [
+    {
+      "query_id": 509,
+      "query": "Current best practices for managing a 47-year-old female with a history of melanoma, associated with IP address 192.168.1.1, last seen in the dermatology department on October 10th, 2021.",
+      "detected_text": "192.168.1.1",
+      "original_label": "IP_ADDRESS",
+      "standardized_label": "IP_ADDRESS",
+      "start": 112,
+      "end": 123,
+      "score": 0.95
+    }
+  ],
+  "LOCATION": [
+    {
+      "query_id": 1,
+      "query": "Evaluation of long-term outcomes for bypass surgery in patients over 60, referencing Mr. James T., operated at St. Vincent's on May 30th, 2022 (ID: 987654321)?",
+      "detected_text": "St. Vincent's",
+      "original_label": "LOCATION",
+      "standardized_label": "GEOGRAPHIC_LOCATION",
+      "start": 111,
+      "end": 124,
+      "score": 0.85
+    },
+    {
+      "query_id": 124,
+      "query": "Safety and efficacy of using Xarelto in a 50-year-old male patient, Mr. Alan K., with atrial fibrillation who was last seen at Cleveland Clinic on March 15th, 2021?",
+      "detected_text": "Xarelto",
+      "original_label": "LOCATION",
+      "standardized_label": "GEOGRAPHIC_LOCATION",
+      "start": 29,
+      "end": 36,
+      "score": 0.85
+    },
+    {
+      "query_id": 352,
+      "query": "How to manage hypertension in a 55yo male with a recent MI, James R., admitted to Cedar Sinai on 2023-04-25 (Insurance: HPB-654321)?",
+      "detected_text": "HPB-654321",
+      "original_label": "LOCATION",
+      "standardized_label": "GEOGRAPHIC_LOCATION",
+      "start": 120,
+      "end": 130,
+      "score": 0.85
+    },
+    {
+      "query_id": 648,
+      "query": "Current CDC guidelines for treating Lyme disease in a 12-year-old child, Alice Thompson, living in Raleigh, diagnosed on July 10, 2023?",
+      "detected_text": "Raleigh",
+      "original_label": "LOCATION",
+      "standardized_label": "GEOGRAPHIC_LOCATION",
+      "start": 99,
+      "end": 106,
+      "score": 0.85
+    },
+    {
+      "query_id": 1047,
+      "query": "Contraindications for prescribing lithium to a 35-year-old male diagnosed with bipolar disorder, Peter Johnson, treated at St. Mary's Clinic on October 15th, 2022 (MRN: PJ-112233).",
+      "detected_text": "PJ-112233",
+      "original_label": "LOCATION",
+      "standardized_label": "GEOGRAPHIC_LOCATION",
+      "start": 169,
+      "end": 178,
+      "score": 0.85
+    }
+  ],
+  "NRP": [
+    {
+      "query_id": 8,
+      "query": "Is it safe to prescribe atorvastatin to a 35-year-old Hispanic male with a history of liver disease, John P., who had a check-up at Lakeside Clinic on Feb 5th, 2022?",
+      "detected_text": "Hispanic",
+      "original_label": "NRP",
+      "standardized_label": null,
+      "start": 54,
+      "end": 62,
+      "score": 0.85
+    },
+    {
+      "query_id": 53,
+      "query": "Does a positive Babinski sign strongly correlate with upper motor neuron disease in a 60-year-old patient?",
+      "detected_text": "Babinski",
+      "original_label": "NRP",
+      "standardized_label": null,
+      "start": 16,
+      "end": 24,
+      "score": 0.85
+    },
+    {
+      "query_id": 326,
+      "query": "What are the new treatment options for a 55-year-old female with a history of Addison's disease and an abnormal Ferriman-Gallwey score diagnosed last year?",
+      "detected_text": "Ferriman-Gallwey",
+      "original_label": "NRP",
+      "standardized_label": null,
+      "start": 112,
+      "end": 128,
+      "score": 0.85
+    },
+    {
+      "query_id": 568,
+      "query": "Tx options for a pt w/ hx of AML, 31yo female named Jenna R., admitted at UPMC on Jan 9th '23 (MRN: #UPMC-231500JR)? Risks with bone marrow transplant?",
+      "detected_text": "31yo",
+      "original_label": "NRP",
+      "standardized_label": null,
+      "start": 34,
+      "end": 38,
+      "score": 0.85
+    },
+    {
+      "query_id": 1030,
+      "query": "Prognosis for a 65-year-old female with a history of bilateral mastectomy and a BRCA1 mutation?",
+      "detected_text": "BRCA1",
+      "original_label": "NRP",
+      "standardized_label": null,
+      "start": 80,
+      "end": 85,
+      "score": 0.85
+    }
+  ],
+  "PERSON": [
+    {
+      "query_id": 0,
+      "query": "What is the latest treatment protocol for a 34-year-old female diagnosed with MS like Anna S., previously treated at Methodist Hospital on April 12, 2023?",
+      "detected_text": "Anna S.",
+      "original_label": "PERSON",
+      "standardized_label": "NAME",
+      "start": 86,
+      "end": 93,
+      "score": 0.85
+    },
+    {
+      "query_id": 192,
+      "query": "Appropriate antibiotic regimen for treating a post-operative infection in a 35-year-old female, Emily W., who had surgery at Johns Hopkins on April 20th, 2023 (MRN: HJ-98654)?",
+      "detected_text": "Emily W.",
+      "original_label": "PERSON",
+      "standardized_label": "NAME",
+      "start": 96,
+      "end": 104,
+      "score": 0.85
+    },
+    {
+      "query_id": 446,
+      "query": "Contraindications for prescribing ACE inhibitors to a 60-year-old female named Maria Gonzalez, seen at Cleveland Clinic last month (phone: 216-555-1234)?",
+      "detected_text": "Maria Gonzalez",
+      "original_label": "PERSON",
+      "standardized_label": "NAME",
+      "start": 79,
+      "end": 93,
+      "score": 0.85
+    },
+    {
+      "query_id": 766,
+      "query": "Revised protocols for treating myocardial infarction in a 63-year-old male, Scott Thompson, who was admitted to Bellevue Hospital on July 12, 2023 (MRN: #BT-543210)?",
+      "detected_text": "Scott Thompson",
+      "original_label": "PERSON",
+      "standardized_label": "NAME",
+      "start": 76,
+      "end": 90,
+      "score": 0.85
+    },
+    {
+      "query_id": 1050,
+      "query": "Management steps for a 50-year-old female, Maria Thompson, diagnosed with rheumatoid arthritis, currently a patient at Coastal Health Clinic (Patient ID: MTH-987654) since May 5th, 2021.",
+      "detected_text": "Maria Thompson",
+      "original_label": "PERSON",
+      "standardized_label": "NAME",
+      "start": 43,
+      "end": 57,
+      "score": 0.85
+    }
+  ],
+  "PHONE_NUMBER": [
+    {
+      "query_id": 77,
+      "query": "Latest treatment options for a 72-year-old female with Alzheimer's disease, referred to by Dr. John Lee at Nevada Medical Group on January 5, 2023 (Contact: 702-555-1234)?",
+      "detected_text": "702-555-1234",
+      "original_label": "PHONE_NUMBER",
+      "standardized_label": "PHONE_NUMBER",
+      "start": 157,
+      "end": 169,
+      "score": 0.4
+    },
+    {
+      "query_id": 659,
+      "query": "new protocol for tx of post-op wound infections in pts wi/hx of diabetes, review case details for Susan P., treated at UCLA Med Center on Apr 4, 2023. fax records to 987-654-3210.",
+      "detected_text": "987-654-3210",
+      "original_label": "PHONE_NUMBER",
+      "standardized_label": "PHONE_NUMBER",
+      "start": 166,
+      "end": 178,
+      "score": 0.4
+    },
+    {
+      "query_id": 923,
+      "query": "Risk factors for stroke in a 60-year-old male with a history of TIA, last evaluated at Boston General Hospital by Dr. Emily Carter on Feb 1st, 2023. Contact: (617) 555-7890.",
+      "detected_text": "(617) 555-7890",
+      "original_label": "PHONE_NUMBER",
+      "standardized_label": "PHONE_NUMBER",
+      "start": 158,
+      "end": 172,
+      "score": 0.4
+    },
+    {
+      "query_id": 248,
+      "query": "clarify dx and mngmnt for pt w/ hx of CHF, Stan M., seen at UW Med on July 4th 2023. also, concerns about drug interactions for his current meds. phone: 555-987-6543.",
+      "detected_text": "555-987-6543",
+      "original_label": "PHONE_NUMBER",
+      "standardized_label": "PHONE_NUMBER",
+      "start": 153,
+      "end": 165,
+      "score": 0.75
+    },
+    {
+      "query_id": 935,
+      "query": "Effective regimens for a 72yo male with COPD, Henry B., who was treated at St. Joseph's Hospital in Phoenix on March 30th, 2023 (Phone: 602-555-1234)?",
+      "detected_text": "602-555-1234",
+      "original_label": "PHONE_NUMBER",
+      "standardized_label": "PHONE_NUMBER",
+      "start": 136,
+      "end": 148,
+      "score": 0.75
+    }
+  ],
+  "UK_NHS": [
+    {
+      "query_id": 144,
+      "query": "Current best practices for managing a 47-year-old male with persistent depressive disorder, Jack Taylor, who was seen at the Chicago downtown clinic on December 15, 2022 (phone: 312-555-1234)?",
+      "detected_text": "312-555-1234",
+      "original_label": "UK_NHS",
+      "standardized_label": null,
+      "start": 178,
+      "end": 190,
+      "score": 1.0
+    },
+    {
+      "query_id": 446,
+      "query": "Contraindications for prescribing ACE inhibitors to a 60-year-old female named Maria Gonzalez, seen at Cleveland Clinic last month (phone: 216-555-1234)?",
+      "detected_text": "216-555-1234",
+      "original_label": "UK_NHS",
+      "standardized_label": null,
+      "start": 139,
+      "end": 151,
+      "score": 1.0
+    },
+    {
+      "query_id": 659,
+      "query": "new protocol for tx of post-op wound infections in pts wi/hx of diabetes, review case details for Susan P., treated at UCLA Med Center on Apr 4, 2023. fax records to 987-654-3210.",
+      "detected_text": "987-654-3210",
+      "original_label": "UK_NHS",
+      "standardized_label": null,
+      "start": 166,
+      "end": 178,
+      "score": 1.0
+    },
+    {
+      "query_id": 850,
+      "query": "What is the prognosis for a 70-year-old female with advanced ovarian cancer, initially diagnosed by Dr. Thomas Nguyen in San Francisco on September 10th, 2023 (Account Number: 9876543210)?",
+      "detected_text": "9876543210",
+      "original_label": "UK_NHS",
+      "standardized_label": null,
+      "start": 176,
+      "end": 186,
+      "score": 1.0
+    }
+  ],
+  "URL": [
+    {
+      "query_id": 12,
+      "query": "Effectiveness of esomeprazole 40 mg daily for GERD in a 55-year-old with chronic kidney disease, referred by Dr. Sarah P. from Chicago on August 19, 2023 (Email: sarah.p@medsite.com)?",
+      "detected_text": "medsite.com",
+      "original_label": "URL",
+      "standardized_label": null,
+      "start": 170,
+      "end": 181,
+      "score": 0.5
+    },
+    {
+      "query_id": 73,
+      "query": "What are the side effects of atorvastatin in a 60-year-old male patient, Michael Brown, seen at the Miami Clinic on March 1st, 2023 (Email: mbrown@example.com)?",
+      "detected_text": "example.com",
+      "original_label": "URL",
+      "standardized_label": null,
+      "start": 147,
+      "end": 158,
+      "score": 0.5
+    },
+    {
+      "query_id": 333,
+      "query": "Standard care protocols for a 40-year-old male with acute appendicitis, John Doerr, admitted to Houston General Hospital on February 18th, 2023 (contact: john.doerr@example.com)?",
+      "detected_text": "john.do",
+      "original_label": "URL",
+      "standardized_label": null,
+      "start": 154,
+      "end": 161,
+      "score": 0.5
+    },
+    {
+      "query_id": 919,
+      "query": "What is the appropriate dose of levothyroxine for a 40yo female pt w/ Hashimoto's dx'd by Dr. Brown on 5th Nov 2020 at NY Presbyterian. contact email: dr.brown@ny.presbyterian.org",
+      "detected_text": "ny.presbyterian.org",
+      "original_label": "URL",
+      "standardized_label": null,
+      "start": 160,
+      "end": 179,
+      "score": 0.5
+    },
+    {
+      "query_id": 1040,
+      "query": "contraindications for prescribing warfarin in pt w/ hx of afib, ref. case of John D., treated at Stanford on Nov 3, 2022, email johndoe@hospital.org?",
+      "detected_text": "hospital.org",
+      "original_label": "URL",
+      "standardized_label": null,
+      "start": 136,
+      "end": 148,
+      "score": 0.5
+    }
+  ],
+  "US_BANK_NUMBER": [
+    {
+      "query_id": 1,
+      "query": "Evaluation of long-term outcomes for bypass surgery in patients over 60, referencing Mr. James T., operated at St. Vincent's on May 30th, 2022 (ID: 987654321)?",
+      "detected_text": "987654321",
+      "original_label": "US_BANK_NUMBER",
+      "standardized_label": null,
+      "start": 148,
+      "end": 157,
+      "score": 0.05
+    },
+    {
+      "query_id": 134,
+      "query": "What is the 5-year survival rate for a 70-year-old female with metastatic ovarian cancer, Patricia Lee, treated at UCSF on 2021-09-30 under MRN UCSF-20210930-567?",
+      "detected_text": "20210930",
+      "original_label": "US_BANK_NUMBER",
+      "standardized_label": null,
+      "start": 149,
+      "end": 157,
+      "score": 0.05
+    },
+    {
+      "query_id": 414,
+      "query": "Guidelines for post-op care in a 70-year-old female, Emily C., after right hip replacement surgery at Mount Sinai Hospital on 06/20/2023. EMR: 456123789.",
+      "detected_text": "456123789",
+      "original_label": "US_BANK_NUMBER",
+      "standardized_label": null,
+      "start": 143,
+      "end": 152,
+      "score": 0.05
+    },
+    {
+      "query_id": 610,
+      "query": "Best practices for managing a 58-year-old male with atrial fibrillation, Thomas Q., admitted to Cedar Sinai Hospital on Feb 14th, 2023 (MRN: 78965432)?",
+      "detected_text": "78965432",
+      "original_label": "US_BANK_NUMBER",
+      "standardized_label": null,
+      "start": 141,
+      "end": 149,
+      "score": 0.05
+    },
+    {
+      "query_id": 850,
+      "query": "What is the prognosis for a 70-year-old female with advanced ovarian cancer, initially diagnosed by Dr. Thomas Nguyen in San Francisco on September 10th, 2023 (Account Number: 9876543210)?",
+      "detected_text": "9876543210",
+      "original_label": "US_BANK_NUMBER",
+      "standardized_label": null,
+      "start": 176,
+      "end": 186,
+      "score": 0.4
+    }
+  ],
+  "US_DRIVER_LICENSE": [
+    {
+      "query_id": 1,
+      "query": "Evaluation of long-term outcomes for bypass surgery in patients over 60, referencing Mr. James T., operated at St. Vincent's on May 30th, 2022 (ID: 987654321)?",
+      "detected_text": "987654321",
+      "original_label": "US_DRIVER_LICENSE",
+      "standardized_label": null,
+      "start": 148,
+      "end": 157,
+      "score": 0.01
+    },
+    {
+      "query_id": 240,
+      "query": "Current treatment options for a 60-year-old male, Robert L., with a recent DX of stage IV colon cancer, evaluated at NYU Langone Health on September 14th, 2023 (MRN: #NY-9876543)?",
+      "detected_text": "9876543",
+      "original_label": "US_DRIVER_LICENSE",
+      "standardized_label": null,
+      "start": 170,
+      "end": 177,
+      "score": 0.01
+    },
+    {
+      "query_id": 563,
+      "query": "Looking for latest COPD management guidelines for a 72yo male, James P., last seen at UCLA clinic on Feb 5, 2023. He's on insurance plan #YH-543210.",
+      "detected_text": "543210",
+      "original_label": "US_DRIVER_LICENSE",
+      "standardized_label": null,
+      "start": 141,
+      "end": 147,
+      "score": 0.01
+    },
+    {
+      "query_id": 170,
+      "query": "What are the latest treatment options for a 32-year-old female with recurrent migraines, Emily Smith, who was seen at Cedar Sinai on January 10, 2023 (MRN: #CS123456)?",
+      "detected_text": "CS123456",
+      "original_label": "US_DRIVER_LICENSE",
+      "standardized_label": null,
+      "start": 157,
+      "end": 165,
+      "score": 0.3
+    },
+    {
+      "query_id": 939,
+      "query": "Current best practices for managing a 63yo male w/ COPD and asthma, Jennifer S. mentioned this case at UCLA meeting on Jul 12, 2022. Check s/p pacemaker insertion on 06/01/2021. He has policy ID: ZY-765432.",
+      "detected_text": "765432",
+      "original_label": "US_DRIVER_LICENSE",
+      "standardized_label": null,
+      "start": 199,
+      "end": 205,
+      "score": 0.4
+    }
+  ],
+  "US_ITIN": [
+    {
+      "query_id": 557,
+      "query": "Updated management guidelines for a 60-year-old female, Mary Johnson, diagnosed with chronic atrial fibrillation, with follow-up at UCSF on January 10th, 2024 (MRN: 987-654321)?",
+      "detected_text": "987-654321",
+      "original_label": "US_ITIN",
+      "standardized_label": null,
+      "start": 165,
+      "end": 175,
+      "score": 0.05
+    },
+    {
+      "query_id": 622,
+      "query": "Could you provide the latest treatment protocols for chronic kidney disease in a 55yo Asian male, Michael T. seen at Cedar Sinai on February 28th, 2023 (MRN: 99887-6543)?",
+      "detected_text": "99887-6543",
+      "original_label": "US_ITIN",
+      "standardized_label": null,
+      "start": 158,
+      "end": 168,
+      "score": 0.05
+    },
+    {
+      "query_id": 1,
+      "query": "Evaluation of long-term outcomes for bypass surgery in patients over 60, referencing Mr. James T., operated at St. Vincent's on May 30th, 2022 (ID: 987654321)?",
+      "detected_text": "987654321",
+      "original_label": "US_ITIN",
+      "standardized_label": null,
+      "start": 148,
+      "end": 157,
+      "score": 0.3
+    },
+    {
+      "query_id": 76,
+      "query": "Contraindications for using warfarin in a patient similar to Alice Brown, seen at St. Louis Clinic on July 10th, 2023, with MRN 987-65-4321?",
+      "detected_text": "987-65-4321",
+      "original_label": "US_ITIN",
+      "standardized_label": null,
+      "start": 128,
+      "end": 139,
+      "score": 0.5
+    },
+    {
+      "query_id": 422,
+      "query": "guidelines for managing COPD in a 70yo male, Frank L., presented at Mass General on 10/22/2022 (SSN: 987-65-4320). Include recs on inhaler usage.",
+      "detected_text": "987-65-4320",
+      "original_label": "US_ITIN",
+      "standardized_label": null,
+      "start": 101,
+      "end": 112,
+      "score": 0.5
+    }
+  ],
+  "US_PASSPORT": [
+    {
+      "query_id": 1,
+      "query": "Evaluation of long-term outcomes for bypass surgery in patients over 60, referencing Mr. James T., operated at St. Vincent's on May 30th, 2022 (ID: 987654321)?",
+      "detected_text": "987654321",
+      "original_label": "US_PASSPORT",
+      "standardized_label": null,
+      "start": 148,
+      "end": 157,
+      "score": 0.05
+    },
+    {
+      "query_id": 122,
+      "query": "Updated COPD management guidelines for 65-year-old male, Jack B., who has been taking Spiriva and was seen at Mayo Clinic in Rochester, MN on July 20th, 2022 (insurance ID: 789456123)?",
+      "detected_text": "789456123",
+      "original_label": "US_PASSPORT",
+      "standardized_label": null,
+      "start": 173,
+      "end": 182,
+      "score": 0.05
+    },
+    {
+      "query_id": 414,
+      "query": "Guidelines for post-op care in a 70-year-old female, Emily C., after right hip replacement surgery at Mount Sinai Hospital on 06/20/2023. EMR: 456123789.",
+      "detected_text": "456123789",
+      "original_label": "US_PASSPORT",
+      "standardized_label": null,
+      "start": 143,
+      "end": 152,
+      "score": 0.05
+    },
+    {
+      "query_id": 129,
+      "query": "Latest treatment options for a 70-year-old male with metastatic prostate cancer, initially diagnosed by Dr. Nguyen at UCSF on March 15th, 2023 (Medical record: P12345678)?",
+      "detected_text": "P12345678",
+      "original_label": "US_PASSPORT",
+      "standardized_label": null,
+      "start": 160,
+      "end": 169,
+      "score": 0.1
+    },
+    {
+      "query_id": 865,
+      "query": "pt 54yo w/ chronic renal failure, notes indicate Dr. Allen J. treated him at City Medical Center on 02-22-2024, MRN B12345678. Need alternative treatment options?",
+      "detected_text": "B12345678",
+      "original_label": "US_PASSPORT",
+      "standardized_label": null,
+      "start": 116,
+      "end": 125,
+      "score": 0.1
+    }
+  ],
+  "US_SSN": [
+    {
+      "query_id": 1,
+      "query": "Evaluation of long-term outcomes for bypass surgery in patients over 60, referencing Mr. James T., operated at St. Vincent's on May 30th, 2022 (ID: 987654321)?",
+      "detected_text": "987654321",
+      "original_label": "US_SSN",
+      "standardized_label": "SOCIAL_SECURITY_NUMBER",
+      "start": 148,
+      "end": 157,
+      "score": 0.05
+    },
+    {
+      "query_id": 530,
+      "query": "Recommendations for managing hypertension in a 54-year-old female, Susan Lee, seen at Cedar Medical Center on April 22nd, 2023 (MRN: 897654321)?",
+      "detected_text": "897654321",
+      "original_label": "US_SSN",
+      "standardized_label": "SOCIAL_SECURITY_NUMBER",
+      "start": 133,
+      "end": 142,
+      "score": 0.05
+    },
+    {
+      "query_id": 875,
+      "query": "Guidelines for anticoagulation therapy in a 75-year-old male, Michael J., with atrial fibrillation seen at UCLA Medical Center on July 10th, 2023 (MRN: 89234-5678)?",
+      "detected_text": "89234-5678",
+      "original_label": "US_SSN",
+      "standardized_label": "SOCIAL_SECURITY_NUMBER",
+      "start": 152,
+      "end": 162,
+      "score": 0.05
+    },
+    {
+      "query_id": 320,
+      "query": "What are the latest recommendations for managing hypertension in a 70-year-old female named Mary Johnson from Chicago, admitted on January 15th, 2023, with MRN: 789-65-4321?",
+      "detected_text": "789-65-4321",
+      "original_label": "US_SSN",
+      "standardized_label": "SOCIAL_SECURITY_NUMBER",
+      "start": 161,
+      "end": 172,
+      "score": 0.5
+    },
+    {
+      "query_id": 607,
+      "query": "Guideline recommendations for managing atrial fibrillation in a 70-year-old male, Robert K., diagnosed at NYU Langone Health on July 15th, 2023 (SSN: 555-66-7777)?",
+      "detected_text": "555-66-7777",
+      "original_label": "US_SSN",
+      "standardized_label": "SOCIAL_SECURITY_NUMBER",
+      "start": 150,
+      "end": 161,
+      "score": 0.85
+    }
+  ]
+}

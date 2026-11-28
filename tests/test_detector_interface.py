@@ -141,7 +141,7 @@ def test_unmapped_labels_kept_with_none_and_original_label_preserved():
 
 
 def test_default_registry_has_no_invented_mappings():
-    result = run_detector(DummyDetector([name_entity()], name="presidio"), TEXT)
+    result = run_detector(DummyDetector([name_entity()], name="not_registered"), TEXT)
     assert result.entities[0].standardized_label is None
 
 

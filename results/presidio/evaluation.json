@@ -1,0 +1,528 @@
+{
+  "detector": "presidio",
+  "methodology": {
+    "matching": "strict one-to-one exact match on (start, end, standardized_label)",
+    "offsets": "start inclusive, end exclusive, Python string (code point) indices",
+    "duplicates": "a gold entity can be matched once; further predictions with the same key are FPs",
+    "unmapped_predictions": "excluded from all category metrics (not counted as FP); reported separately",
+    "hard_negatives": "mapped predictions on hard-negative records are FPs",
+    "unresolved_gold": "records containing an ambiguous/missing gold annotation are excluded entirely",
+    "thresholds": "none; every saved prediction is used regardless of score",
+    "zero_denominators": "a metric is null when its denominator is 0; F1 = 2TP / (2TP + FP + FN)"
+  },
+  "counts": {
+    "dataset_records": 1051,
+    "eligible_records": 1047,
+    "excluded_records": 4,
+    "excluded_query_ids": [
+      22,
+      134,
+      149,
+      568
+    ],
+    "excluded_gold_annotations": 16,
+    "excluded_unresolved_gold_annotations": 4,
+    "excluded_predictions": 19,
+    "eligible_gold_annotations": 2957,
+    "eligible_predictions": 3921,
+    "mapped_predictions": 3411,
+    "unmapped_predictions": 510
+  },
+  "overall": {
+    "tp": 1451,
+    "fp": 1960,
+    "fn": 1506,
+    "precision": 0.425388449135151,
+    "recall": 0.4907000338180588,
+    "f1": 0.45571608040201006
+  },
+  "per_category": {
+    "ACCOUNT_NUMBER": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 4,
+      "precision": null,
+      "recall": 0.0,
+      "f1": 0.0
+    },
+    "CERTIFICATE_LICENSE_NUMBER": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "precision": null,
+      "recall": 0.0,
+      "f1": 0.0
+    },
+    "DATE": {
+      "tp": 475,
+      "fp": 1546,
+      "fn": 327,
+      "precision": 0.23503216229589313,
+      "recall": 0.5922693266832918,
+      "f1": 0.3365214311016649
+    },
+    "EMAIL_ADDRESS": {
+      "tp": 30,
+      "fp": 0,
+      "fn": 1,
+      "precision": 1.0,
+      "recall": 0.967741935483871,
+      "f1": 0.9836065573770492
+    },
+    "FAX_NUMBER": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 2,
+      "precision": null,
+      "recall": 0.0,
+      "f1": 0.0
+    },
+    "GEOGRAPHIC_LOCATION": {
+      "tp": 175,
+      "fp": 184,
+      "fn": 647,
+      "precision": 0.48746518105849584,
+      "recall": 0.21289537712895376,
+      "f1": 0.29635901778154106
+    },
+    "HEALTH_PLAN_BENEFICIARY_NUMBER": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 91,
+      "precision": null,
+      "recall": 0.0,
+      "f1": 0.0
+    },
+    "IP_ADDRESS": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "MEDICAL_RECORD_NUMBER": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 301,
+      "precision": null,
+      "recall": 0.0,
+      "f1": 0.0
+    },
+    "NAME": {
+      "tp": 715,
+      "fp": 169,
+      "fn": 95,
+      "precision": 0.8088235294117647,
+      "recall": 0.8827160493827161,
+      "f1": 0.8441558441558441
+    },
+    "PHONE_NUMBER": {
+      "tp": 44,
+      "fp": 15,
+      "fn": 1,
+      "precision": 0.7457627118644068,
+      "recall": 0.9777777777777777,
+      "f1": 0.8461538461538461
+    },
+    "SOCIAL_SECURITY_NUMBER": {
+      "tp": 11,
+      "fp": 46,
+      "fn": 22,
+      "precision": 0.19298245614035087,
+      "recall": 0.3333333333333333,
+      "f1": 0.24444444444444444
+    },
+    "UNIQUE_IDENTIFIER": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 14,
+      "precision": null,
+      "recall": 0.0,
+      "f1": 0.0
+    }
+  },
+  "unmapped_predictions": {
+    "total": 510,
+    "by_original_label": {
+      "US_DRIVER_LICENSE": 265,
+      "NRP": 75,
+      "US_BANK_NUMBER": 61,
+      "US_ITIN": 35,
+      "URL": 34,
+      "US_PASSPORT": 33,
+      "UK_NHS": 7
+    },
+    "exact_gold_span_by_label": {
+      "US_DRIVER_LICENSE -> MEDICAL_RECORD_NUMBER": 63,
+      "US_BANK_NUMBER -> MEDICAL_RECORD_NUMBER": 46,
+      "US_PASSPORT -> MEDICAL_RECORD_NUMBER": 27,
+      "US_ITIN -> MEDICAL_RECORD_NUMBER": 20,
+      "US_ITIN -> SOCIAL_SECURITY_NUMBER": 10,
+      "US_DRIVER_LICENSE -> HEALTH_PLAN_BENEFICIARY_NUMBER": 7,
+      "UK_NHS -> PHONE_NUMBER": 5,
+      "US_BANK_NUMBER -> HEALTH_PLAN_BENEFICIARY_NUMBER": 4,
+      "US_PASSPORT -> HEALTH_PLAN_BENEFICIARY_NUMBER": 3,
+      "NRP -> MEDICAL_RECORD_NUMBER": 2,
+      "US_ITIN -> HEALTH_PLAN_BENEFICIARY_NUMBER": 2,
+      "UK_NHS -> ACCOUNT_NUMBER": 1,
+      "UK_NHS -> FAX_NUMBER": 1,
+      "US_BANK_NUMBER -> ACCOUNT_NUMBER": 1,
+      "US_BANK_NUMBER -> UNIQUE_IDENTIFIER": 1,
+      "US_DRIVER_LICENSE -> ACCOUNT_NUMBER": 1,
+      "US_DRIVER_LICENSE -> UNIQUE_IDENTIFIER": 1,
+      "US_ITIN -> UNIQUE_IDENTIFIER": 1,
+      "US_PASSPORT -> UNIQUE_IDENTIFIER": 1
+    }
+  },
+  "hard_negatives": {
+    "records": 219,
+    "records_with_predictions": 199,
+    "predictions": 357,
+    "mapped_predictions_counted_as_fp": 333,
+    "by_category": {
+      "DATE": 287,
+      "NAME": 36,
+      "UNMAPPED": 24,
+      "GEOGRAPHIC_LOCATION": 10
+    },
+    "by_original_label": {
+      "DATE_TIME": 287,
+      "PERSON": 36,
+      "NRP": 24,
+      "LOCATION": 10
+    }
+  },
+  "errors": {
+    "fp_by_category": {
+      "ACCOUNT_NUMBER": 0,
+      "CERTIFICATE_LICENSE_NUMBER": 0,
+      "DATE": 1546,
+      "EMAIL_ADDRESS": 0,
+      "FAX_NUMBER": 0,
+      "GEOGRAPHIC_LOCATION": 184,
+      "HEALTH_PLAN_BENEFICIARY_NUMBER": 0,
+      "IP_ADDRESS": 0,
+      "MEDICAL_RECORD_NUMBER": 0,
+      "NAME": 169,
+      "PHONE_NUMBER": 15,
+      "SOCIAL_SECURITY_NUMBER": 46,
+      "UNIQUE_IDENTIFIER": 0
+    },
+    "fn_by_category": {
+      "ACCOUNT_NUMBER": 4,
+      "CERTIFICATE_LICENSE_NUMBER": 1,
+      "DATE": 327,
+      "EMAIL_ADDRESS": 1,
+      "FAX_NUMBER": 2,
+      "GEOGRAPHIC_LOCATION": 647,
+      "HEALTH_PLAN_BENEFICIARY_NUMBER": 91,
+      "IP_ADDRESS": 0,
+      "MEDICAL_RECORD_NUMBER": 301,
+      "NAME": 95,
+      "PHONE_NUMBER": 1,
+      "SOCIAL_SECURITY_NUMBER": 22,
+      "UNIQUE_IDENTIFIER": 14
+    },
+    "fp_by_original_label": {
+      "DATE_TIME": 1546,
+      "LOCATION": 184,
+      "PERSON": 169,
+      "US_SSN": 46,
+      "PHONE_NUMBER": 15
+    },
+    "fp_by_gold_relation": {
+      "no_overlapping_gold": 961,
+      "overlapping_gold_different_span": 894,
+      "same_span_different_label": 105
+    },
+    "fn_by_prediction_relation": {
+      "overlapping_prediction_different_span": 711,
+      "no_overlapping_prediction": 659,
+      "same_span_different_label": 92,
+      "same_span_unmapped_only": 44
+    }
+  },
+  "overlaps": {
+    "same_span_groups": 100,
+    "same_span_groups_with_conflicting_labels": 68,
+    "same_span_label_combinations": {
+      "US_BANK_NUMBER + US_DRIVER_LICENSE": {
+        "count": 29,
+        "query_ids": [
+          96,
+          98,
+          250,
+          277,
+          305,
+          365,
+          375,
+          433,
+          461,
+          463,
+          465,
+          466,
+          484,
+          491,
+          575,
+          591,
+          610,
+          633,
+          741,
+          745,
+          776,
+          781,
+          830,
+          845,
+          904,
+          985,
+          994,
+          996,
+          1000
+        ]
+      },
+      "US_BANK_NUMBER + US_DRIVER_LICENSE + US_ITIN + US_PASSPORT + US_SSN": {
+        "count": 17,
+        "query_ids": [
+          1,
+          85,
+          230,
+          233,
+          236,
+          265,
+          287,
+          410,
+          483,
+          504,
+          711,
+          778,
+          876,
+          901,
+          921,
+          959,
+          1035
+        ]
+      },
+      "US_ITIN + US_SSN": {
+        "count": 17,
+        "query_ids": [
+          76,
+          127,
+          147,
+          299,
+          318,
+          331,
+          389,
+          454,
+          557,
+          622,
+          655,
+          819,
+          844,
+          953,
+          982,
+          1009,
+          1015
+        ]
+      },
+      "PHONE_NUMBER + UK_NHS": {
+        "count": 6,
+        "query_ids": [
+          144,
+          446,
+          533,
+          659,
+          995,
+          1043
+        ]
+      },
+      "US_BANK_NUMBER + US_DRIVER_LICENSE + US_PASSPORT + US_SSN": {
+        "count": 6,
+        "query_ids": [
+          122,
+          188,
+          255,
+          340,
+          414,
+          861
+        ]
+      },
+      "DATE_TIME + PHONE_NUMBER": {
+        "count": 5,
+        "query_ids": [
+          511,
+          637,
+          746,
+          865,
+          894
+        ]
+      },
+      "DATE_TIME + US_BANK_NUMBER + US_DRIVER_LICENSE + US_PASSPORT": {
+        "count": 5,
+        "query_ids": [
+          88,
+          195,
+          295,
+          605,
+          986
+        ]
+      },
+      "DATE_TIME + PERSON": {
+        "count": 3,
+        "query_ids": [
+          449,
+          604,
+          801
+        ]
+      },
+      "DATE_TIME + US_SSN": {
+        "count": 3,
+        "query_ids": [
+          388,
+          549,
+          875
+        ]
+      },
+      "US_DRIVER_LICENSE + US_PASSPORT": {
+        "count": 3,
+        "query_ids": [
+          129,
+          821,
+          865
+        ]
+      },
+      "DATE_TIME + US_BANK_NUMBER + US_DRIVER_LICENSE + US_PASSPORT + US_SSN": {
+        "count": 2,
+        "query_ids": [
+          530,
+          656
+        ]
+      },
+      "DATE_TIME + US_DRIVER_LICENSE": {
+        "count": 2,
+        "query_ids": [
+          507,
+          991
+        ]
+      },
+      "PHONE_NUMBER + UK_NHS + US_BANK_NUMBER + US_DRIVER_LICENSE": {
+        "count": 1,
+        "query_ids": [
+          850
+        ]
+      },
+      "PHONE_NUMBER + US_BANK_NUMBER + US_DRIVER_LICENSE": {
+        "count": 1,
+        "query_ids": [
+          877
+        ]
+      }
+    },
+    "overlapping_pairs_different_spans": 57,
+    "overlapping_label_combinations": {
+      "EMAIL_ADDRESS / URL": {
+        "count": 34,
+        "query_ids": [
+          12,
+          38,
+          73,
+          86,
+          212,
+          274,
+          277,
+          333,
+          351,
+          449,
+          453,
+          494,
+          503,
+          534,
+          583,
+          604,
+          714,
+          735,
+          744,
+          759,
+          799,
+          840,
+          914,
+          919,
+          925,
+          934,
+          999,
+          1029,
+          1040,
+          1045
+        ]
+      },
+      "LOCATION / US_DRIVER_LICENSE": {
+        "count": 9,
+        "query_ids": [
+          346,
+          352,
+          363,
+          419,
+          458,
+          468,
+          688,
+          696,
+          1047
+        ]
+      },
+      "DATE_TIME / US_DRIVER_LICENSE": {
+        "count": 4,
+        "query_ids": [
+          207,
+          303,
+          549,
+          1000
+        ]
+      },
+      "PERSON / US_DRIVER_LICENSE": {
+        "count": 3,
+        "query_ids": [
+          416,
+          584,
+          845
+        ]
+      },
+      "US_DRIVER_LICENSE / US_SSN": {
+        "count": 2,
+        "query_ids": [
+          549,
+          557
+        ]
+      },
+      "DATE_TIME / US_BANK_NUMBER": {
+        "count": 1,
+        "query_ids": [
+          1000
+        ]
+      },
+      "NRP / US_BANK_NUMBER": {
+        "count": 1,
+        "query_ids": [
+          484
+        ]
+      },
+      "NRP / US_DRIVER_LICENSE": {
+        "count": 1,
+        "query_ids": [
+          484
+        ]
+      },
+      "PERSON / US_BANK_NUMBER": {
+        "count": 1,
+        "query_ids": [
+          845
+        ]
+      },
+      "US_DRIVER_LICENSE / US_ITIN": {
+        "count": 1,
+        "query_ids": [
+          557
+        ]
+      }
+    }
+  }
+}
